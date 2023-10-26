@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My List View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MyListViewController" customModule="MyList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mz-M2-lq8">
+                                <rect key="frame" x="0.0" y="52" width="393" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="C2J-WG-LgI"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="lai-Fv-bc4">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="cx5-G2-hfP">
+                                            <connections>
+                                                <action selector="didTapDeleteBarButton:" destination="BYZ-38-t0r" id="sf3-Cq-xln"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FbY-aB-5Ha">
+                                            <connections>
+                                                <action selector="didTapAddBarButton:" destination="BYZ-38-t0r" id="Tus-Yl-9ei"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eaj-ll-MbX">
+                                <rect key="frame" x="0.0" y="96" width="393" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eaj-ll-MbX" secondAttribute="bottom" id="9NO-Un-r23"/>
+                            <constraint firstItem="3mz-M2-lq8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HRx-9N-fUr"/>
+                            <constraint firstItem="eaj-ll-MbX" firstAttribute="top" secondItem="3mz-M2-lq8" secondAttribute="bottom" id="Kjn-Fj-3ac"/>
+                            <constraint firstItem="eaj-ll-MbX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eNm-UG-Vby"/>
+                            <constraint firstItem="3mz-M2-lq8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="52" id="hyv-Xy-Ovu"/>
+                            <constraint firstItem="3mz-M2-lq8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="t0n-7J-mS0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eaj-ll-MbX" secondAttribute="trailing" id="vAp-NC-YKr"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="navigationBar" destination="3mz-M2-lq8" id="6qf-ZB-jR2"/>
+                        <outlet property="tableView" destination="eaj-ll-MbX" id="WpG-x7-4y3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116.79389312977099" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
