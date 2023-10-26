@@ -34,7 +34,7 @@ class MyListViewController: UIViewController {
             }
     }
     
-    private func addBarButtonAction() {
+    private func addBarButtonAction(completion: (() -> Void)? = nil) {
         DSAlert.showWithTextField(
             controller: self,
             textFieldPlaceholder: .addItem,
@@ -45,6 +45,7 @@ class MyListViewController: UIViewController {
                 self.list.append(item)
                 self.tableView.reloadData()
                 MyListUserDefault.save(object: self.list, with: .itensList)
+                self.addBarButtonAction()
             }
     }
     
