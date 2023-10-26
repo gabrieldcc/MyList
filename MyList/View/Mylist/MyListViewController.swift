@@ -18,6 +18,7 @@ class MyListViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         navigationBar.topItem?.title = NavigationBarTitleEnum.myList.rawValue
+        list = MyListUserDefault.getObject(with: .itensList)
     }
     
     private func deleteBarButtonAction() {
@@ -42,6 +43,7 @@ class MyListViewController: UIViewController {
             rightButtonTitle: .ok) { item in
                 self.list.append(item)
                 self.tableView.reloadData()
+                MyListUserDefault.save(object: self.list, with: .itensList)
             }
     }
     
