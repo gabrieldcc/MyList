@@ -13,7 +13,8 @@ enum AlertTitleEnum: String {
 }
 
 enum AlertMessageEnum: String {
-    case deleteItemMessage = "Você realmente deseja deletar este item?"
+    case deleteItemMessage = "Você realmente deseja deletar todos itens da lista?"
+    case none = ""
 }
 
 enum AlertLeftButtonTitleEnum: String {

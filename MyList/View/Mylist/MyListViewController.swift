@@ -19,10 +19,19 @@ class MyListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        navigationBar.topItem?.title = NavigationBarTitleEnum.myList.rawValue
     }
     
     private func deleteBarButtonAction() {
-        
+        DSAlert.show(
+            controller: self,
+            alertTitle: .attention,
+            alertMessage: .deleteItemMessage,
+            leftButtonTitle: .cancel,
+            rightButtonTitle: .delete) {
+                self.list.removeAll()
+                self.tableView.reloadData()
+            }
     }
     
     private func addBarButtonAction() {
@@ -30,7 +39,7 @@ class MyListViewController: UIViewController {
             controller: self,
             textFieldPlaceholder: .addItem,
             alertTitle: .attention,
-            alertMessage: .deleteItemMessage,
+            alertMessage: .none,
             leftButtonTitle: .cancel,
             rightButtonTitle: .ok) { item in
                 self.list.append(item)
