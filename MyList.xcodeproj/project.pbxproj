@@ -113,7 +113,8 @@
 		6571B1052AE87106006BAC9A /* MyList */ = {
 			isa = PBXGroup;
 			children = (
-				6571B13A2AE871C4006BAC9A /* View */,
+				6599C38A2AE877BB007F9B6A /* Mylist */,
+				6571B13A2AE871C4006BAC9A /* DesignSystem */,
 				6571B1392AE871B4006BAC9A /* Resources */,
 				6571B1172AE87109006BAC9A /* Info.plist */,
 				6571B10F2AE87106006BAC9A /* MyList.xcdatamodeld */,
@@ -149,13 +150,12 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		6571B13A2AE871C4006BAC9A /* View */ = {
+		6571B13A2AE871C4006BAC9A /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
 				6599C38B2AE877C8007F9B6A /* Alert */,
-				6599C38A2AE877BB007F9B6A /* Mylist */,
 			);
-			path = View;
+			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 		6599C3892AE87446007F9B6A /* Cell */ = {
@@ -170,11 +170,9 @@
 		6599C38A2AE877BB007F9B6A /* Mylist */ = {
 			isa = PBXGroup;
 			children = (
+				6599C3962AEAE894007F9B6A /* Scenes */,
 				6599C3932AEAD067007F9B6A /* UserDefault */,
 				6599C3902AEACF37007F9B6A /* Reusables */,
-				6571B10A2AE87106006BAC9A /* MyListViewController.swift */,
-				6571B10C2AE87106006BAC9A /* Main.storyboard */,
-				6599C3892AE87446007F9B6A /* Cell */,
 			);
 			path = Mylist;
 			sourceTree = "<group>";
@@ -202,6 +200,24 @@
 				6599C3942AEAD078007F9B6A /* MylistUserDefault.swift */,
 			);
 			path = UserDefault;
+			sourceTree = "<group>";
+		};
+		6599C3962AEAE894007F9B6A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				6599C3972AEAE8B4007F9B6A /* MyList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		6599C3972AEAE8B4007F9B6A /* MyList */ = {
+			isa = PBXGroup;
+			children = (
+				6571B10A2AE87106006BAC9A /* MyListViewController.swift */,
+				6571B10C2AE87106006BAC9A /* Main.storyboard */,
+				6599C3892AE87446007F9B6A /* Cell */,
+			);
+			path = MyList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

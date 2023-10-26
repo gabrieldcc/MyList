@@ -25,6 +25,15 @@ class MyListViewController: UIViewController {
         itensList = MyListUserDefault.getObject(with: .itensList)
     }
     
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(
+            UINib(nibName: MyListTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: MyListTableViewCell.identifier
+        )
+    }
+    
     private func deleteBarButtonAction() {
         DSAlert.show(
             controller: self,
@@ -59,15 +68,6 @@ class MyListViewController: UIViewController {
     
     @IBAction func didTapAddBarButton(_ sender: UIBarButtonItem) {
         addBarButtonAction()
-    }
-    
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(
-            UINib(nibName: MyListTableViewCell.identifier, bundle: nil),
-            forCellReuseIdentifier: MyListTableViewCell.identifier
-        )
     }
 }
 
