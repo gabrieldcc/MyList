@@ -27,3 +27,7 @@ enum AlertRightButtonTitleEnum: String {
     case delete = "Deletar"
     case cancel = "Cancelar"
 }
+
+enum AlertTextFieldPlaceholder: String {
+    case addItem = "Escreva o item que deseja adicionar"
+}

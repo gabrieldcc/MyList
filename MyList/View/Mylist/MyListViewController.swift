@@ -8,13 +8,14 @@
 import UIKit
 
 class MyListViewController: UIViewController {
+    
+    var list: [String] = ["arroz", "feijao"]
 
     @IBOutlet weak var tableView: UITableView!
-    let list: [String] = ["arroz", "feijao"]
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     @IBOutlet weak var navigationBar: UINavigationBar!
-    
     @IBOutlet weak var deleteBarButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -25,12 +26,16 @@ class MyListViewController: UIViewController {
     }
     
     private func addBarButtonAction() {
-        DSAlert.show(
-            alertTitle: <#T##AlertTitleEnum#>,
-            alertMessage: <#T##AlertMessageEnum#>,
-            leftButtonTitle: <#T##AlertLeftButtonTitleEnum#>,
-            rightButtonTitle: <#T##AlertRightButtonTitleEnum#>,
-            rightButtonAction: <#T##() -> Void#>)
+        DSAlert.showWithTextField(
+            controller: self,
+            textFieldPlaceholder: .addItem,
+            alertTitle: .attention,
+            alertMessage: .deleteItemMessage,
+            leftButtonTitle: .cancel,
+            rightButtonTitle: .ok) { item in
+                self.list.append(item)
+                self.tableView.reloadData()
+            }
     }
     
     @IBAction func didTapDeleteBarButton(_ sender: UIBarButtonItem) {
@@ -44,8 +49,10 @@ class MyListViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: MyListTableViewCell.identifier, bundle: nil),
-                           forCellReuseIdentifier: MyListTableViewCell.identifier)
+        tableView.register(
+            UINib(nibName: MyListTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: MyListTableViewCell.identifier
+        )
     }
 }
 
