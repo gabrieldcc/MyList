@@ -17,6 +17,10 @@ class MyListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupView()
+    }
+    
+    private func setupView() {
         navigationBar.topItem?.title = NavigationBarTitleEnum.myList.rawValue
         itensList = MyListUserDefault.getObject(with: .itensList)
     }
