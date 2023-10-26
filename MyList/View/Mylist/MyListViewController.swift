@@ -79,18 +79,17 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        let trash = UIContextualAction(style: .destructive, title: "Excluir") {  (action, view, completionHandler) in
+        let trash = UIContextualAction(
+            style: .destructive,
+            title: "Excluir"
+        ) {  _, _, _ in
             self.list.remove(at: indexPath.row)
             tableView.reloadData()
             MyListUserDefault.save(object: self.list, with: .itensList)
         }
         trash.backgroundColor = .systemRed
-        
         let configuration = UISwipeActionsConfiguration(actions: [trash])
         return configuration
     }
-
-    
 }
 
