@@ -12,9 +12,7 @@ class MyListViewController: UIViewController {
     var list: [String] = ["arroz", "feijao"]
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var addBarButton: UIBarButtonItem!
     @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var deleteBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
