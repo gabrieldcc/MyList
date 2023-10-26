@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyListViewController: UIViewController {
+final class MyListViewController: UIViewController {
     
     var itensList: [String] = []
 
@@ -47,7 +47,7 @@ class MyListViewController: UIViewController {
             }
     }
     
-    private func addBarButtonAction(completion: (() -> Void)? = nil) {
+    private func addBarButtonAction() {
         DSAlert.showWithTextField(
             controller: self,
             textFieldPlaceholder: .addItem,
