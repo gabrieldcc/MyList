@@ -9,7 +9,7 @@ import UIKit
 
 class MyListViewController: UIViewController {
     
-    var list: [String] = ["arroz", "feijao"]
+    var itensList: [String] = []
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -18,7 +18,7 @@ class MyListViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         navigationBar.topItem?.title = NavigationBarTitleEnum.myList.rawValue
-        list = MyListUserDefault.getObject(with: .itensList)
+        itensList = MyListUserDefault.getObject(with: .itensList)
     }
     
     private func deleteBarButtonAction() {
@@ -28,9 +28,9 @@ class MyListViewController: UIViewController {
             alertMessage: .deleteItemMessage,
             leftButtonTitle: .cancel,
             rightButtonTitle: .delete) {
-                self.list.removeAll()
+                self.itensList.removeAll()
                 self.tableView.reloadData()
-                MyListUserDefault.save(object: self.list, with: .itensList)
+                MyListUserDefault.save(object: self.itensList, with: .itensList)
             }
     }
     
@@ -42,9 +42,9 @@ class MyListViewController: UIViewController {
             alertMessage: .none,
             leftButtonTitle: .cancel,
             rightButtonTitle: .ok) { item in
-                self.list.append(item)
+                self.itensList.append(item)
                 self.tableView.reloadData()
-                MyListUserDefault.save(object: self.list, with: .itensList)
+                MyListUserDefault.save(object: self.itensList, with: .itensList)
                 self.addBarButtonAction()
             }
     }
@@ -70,12 +70,12 @@ class MyListViewController: UIViewController {
 //MARK: - TableView
 extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return itensList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MyListTableViewCell.identifier, for: indexPath)
-        cell.textLabel?.text = list[indexPath.row]
+        cell.textLabel?.text = itensList[indexPath.row]
         return cell
     }
     
@@ -84,9 +84,9 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             style: .destructive,
             title: "Excluir"
         ) {  _, _, _ in
-            self.list.remove(at: indexPath.row)
+            self.itensList.remove(at: indexPath.row)
             tableView.reloadData()
-            MyListUserDefault.save(object: self.list, with: .itensList)
+            MyListUserDefault.save(object: self.itensList, with: .itensList)
         }
         trash.backgroundColor = .systemRed
         let configuration = UISwipeActionsConfiguration(actions: [trash])
