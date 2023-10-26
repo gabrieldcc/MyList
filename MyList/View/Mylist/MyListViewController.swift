@@ -30,6 +30,7 @@ class MyListViewController: UIViewController {
             rightButtonTitle: .delete) {
                 self.list.removeAll()
                 self.tableView.reloadData()
+                MyListUserDefault.save(object: self.list, with: .itensList)
             }
     }
     
