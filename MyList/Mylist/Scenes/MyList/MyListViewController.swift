@@ -30,6 +30,18 @@ final class MyListViewController: UIViewController {
                 self.tableView.reloadData()
             }
         )
+        DataBaseManager.listenerDataBaseFirestore(
+            firestoreCollection: .itensList,
+            firestoreDocument: .itensDocument,
+            completion: {
+                DataBaseManager.getDataBaseFirestore(
+                    firestoreCollection: .itensList,
+                    completion: { itensList in
+                        self.itensList = itensList
+                        self.tableView.reloadData()
+                    }
+                )
+            })
     }
     
     private func setupTableView() {
@@ -49,6 +61,11 @@ final class MyListViewController: UIViewController {
             leftButtonTitle: .cancel,
             rightButtonTitle: .delete) {
                 self.itensList.removeAll()
+                DataBaseManager.updateDataBaseFirestore(
+                    firestoreDocument: .itensDocument,
+                    firestoreCollection: .itensList,
+                    localCollection: self.itensList
+                )
                 self.tableView.reloadData()
             }
     }
@@ -62,8 +79,8 @@ final class MyListViewController: UIViewController {
             leftButtonTitle: .cancel,
             rightButtonTitle: .ok) { item in
                 self.itensList.append(item)
-                //self.updateDataBaseFirestore()
                 DataBaseManager.updateDataBaseFirestore(
+                    firestoreDocument: .itensDocument,
                     firestoreCollection: .itensList,
                     localCollection: self.itensList
                 )
@@ -100,6 +117,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         ) {  _, _, _ in
             self.itensList.remove(at: indexPath.row)
             DataBaseManager.updateDataBaseFirestore(
+                firestoreDocument: .itensDocument,
                 firestoreCollection: .itensList,
                 localCollection: self.itensList
             )
